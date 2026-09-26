@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.dashboard-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    height: fit-content;
+}
+
+/* Header & Logout Layout */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f3f4f6;
+    padding-bottom: 15px;
+}
+
+.header-section h1 {
+    color: #333;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* Dynamic Logout Button Styling */
+#todo-items button {
+    padding: 8px 16px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#todo-items button:hover {
+    background: #dc2626;
+}
+
+/* Input Form Section */
+.input-section {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.input-section input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.input-section input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.input-section button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+.input-section button:hover {
+    opacity: 0.9;
+}
+
+.input-section button:active {
+    transform: scale(0.98);
+}
+
+/* Todo List Items Styling */
+#list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#list li {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    padding: 14px 18px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #4b5563;
+    font-weight: 500;
+    word-break: break-all;
+}
+
+/* Edit & Delete Buttons inside List */
+#list li button {
+    margin-left: 8px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Edit Button Specifics */
+#list li button:nth-of-type(1) {
+    margin-left: auto;
+    /* Push buttons to the right side */
+    background: #e0e7ff;
+    color: #4f46e5;
+}
+
+#list li button:nth-of-type(1):hover {
+    background: #c7d2fe;
+}
+
+/* Delete Button Specifics */
+#list li button:nth-of-type(2) {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+#list li button:nth-of-type(2):hover {
+    background: #fecaca;
+}

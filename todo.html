@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App - Dashboard</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+        <!-- Header Section: Jaha heading aur aapka logout button dynamically set hoga -->
+        <div class="header-section">
+            <h1>Todo App</h1>
+            <div id="todo-items"></div> <!-- Logout button yahan inject hoga -->
+        </div>
+
+        <!-- Input Section: Task add karne ke liye -->
+        <div id="todo-app" class="input-section">
+            <input type="text" id="text" placeholder="Add a new task...">
+            <button id="add">Add Task</button>
+        </div>
+
+        <!-- List Section: Tasks display karne ke liye -->
+        <div class="list-section">
+            <ul id="list"></ul>
+        </div>
+    </div>
+
+    <script src="todo.js"></script>
+</body>
+
+</html>

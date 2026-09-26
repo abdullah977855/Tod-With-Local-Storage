@@ -1,34 +1,61 @@
-const inputOfText = document.querySelector("#text");
-const addButton = document.getElementById("add");
-const todoItem = document.getElementById("todo-items");
-const list = document.getElementById("list");
+var username = document.getElementById("username");
+var email = document.getElementById("email");
+var password = document.getElementById("password")
+var btn = document.getElementById("btn")
+var showusername = document.getElementById("showusername")
+var showEmail = document.getElementById("showemail")
+var showPassword = document.getElementById("showpassword")
+let moveToTodo = document.createElement("button");
 
-addButton.addEventListener("click", function () {
-    if (inputOfText.value == "") {
-        alert("Empty Input")
-        return;
-    } else {
-        const listItem = document.createElement("li");
-        listItem.innerText = inputOfText.value + " ";
-        const editButton = document.createElement("button");
-        const deleteButton = document.createElement("button");
-        editButton.innerText = "Edit";
-        deleteButton.innerText = "Delete";
-        listItem.appendChild(editButton);
-        listItem.appendChild(deleteButton)
-        deleteButton.addEventListener("click", function(){
-            listItem.remove();
+function SetItem() {
+    console.log(username.value)
+    console.log(email.value);
+    console.log(password.value);
+    localStorage.setItem("NAME", username.value);
+    localStorage.setItem("Email", email.value)
+    localStorage.setItem("Password", password.value)
+    localStorage.setItem("login", true)
+    getDATA()
+}
+
+
+function getDATA() {
+    var getname = localStorage.getItem("NAME")
+    var getPassword = localStorage.getItem("Password")
+    var getEmail = localStorage.getItem("Email");
+    var checkLogin = localStorage.getItem("login")
+    if (checkLogin == "true") {
+        showusername.innerText = "welcome: " + getname;
+        showEmail.innerText = "Email: " + getEmail;
+        showPassword.innerText = "Password: " + getPassword
+        username.style.display = "none"
+        email.style.display = "none";
+        password.style.display = "none"
+        btn.innerText = "Log-out"
+        moveToTodo.innerText = "Todo App"
+        btn.before(moveToTodo)
+        moveToTodo.addEventListener("click", function () {
+            window.location.href = "./todo.html"
         })
-        editButton.addEventListener("click", function(){
-            let editPrompt = prompt("Enter a text you want to edit");
-            if(editButton == ""){
-                alert("Empty Input")
-            }else{
-                listItem.firstChild.nodeValue = editPrompt;
-            }
-        })
-        list.appendChild(listItem)
-        inputOfText.value = "";
+        btn.setAttribute("onclick", "logOut()")
     }
+}
 
-})
+function logOut() {
+    localStorage.clear();
+    username.value = "";
+    email.value = "";
+    password.value = "";
+    btn.innerText = "Login"
+    email.style.display = "block"
+    password.style.display = "block";
+    username.style.display = "block"
+    showEmail.innerText = "";
+    showusername.innerText = "";
+    showPassword.innerText = "";
+    moveToTodo.remove();
+    btn.setAttribute("onclick", "SetItem()")
+    getDATA();
+}
+
+getDATA()
