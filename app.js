@@ -8,9 +8,10 @@ var showPassword = document.getElementById("showpassword")
 let moveToTodo = document.createElement("button");
 
 function SetItem() {
-    console.log(username.value)
-    console.log(email.value);
-    console.log(password.value);
+    if(username.value == "" && email.value == "" && password.value == ""){
+        alert("Inputs aur empty")
+        return
+    }
     localStorage.setItem("NAME", username.value);
     localStorage.setItem("Email", email.value)
     localStorage.setItem("Password", password.value)
