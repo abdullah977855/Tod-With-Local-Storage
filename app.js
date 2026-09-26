@@ -8,7 +8,7 @@ var showPassword = document.getElementById("showpassword")
 let moveToTodo = document.createElement("button");
 
 function SetItem() {
-    if(username.value == "" && email.value == "" && password.value == ""){
+    if(username.value == "" || email.value == "" || password.value == ""){
         alert("Inputs aur empty")
         return
     }
